@@ -31,7 +31,11 @@ export class UserManagementComponent implements OnInit {
 
     })
     console.log("this is the new message", this.users);
+
+    
   }
+
+
 
 
   openRolesModal(user: User) {
