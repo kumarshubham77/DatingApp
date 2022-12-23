@@ -27,12 +27,12 @@ namespace API.Controllers
                 .Select(u => new
                 {
                     u.Id,
-                    UserName = u.UserName,
+                    Username = u.UserName,
                     Roles = u.UserRoles.Select(r => r.Role.Name).ToList()
                 })
                 .ToListAsync();
-            return Ok(users);
             
+            return Ok(users);
         }
 
         [Authorize(Policy = "RequireAdminRole")]
@@ -60,14 +60,11 @@ namespace API.Controllers
             return Ok(await _userManager.GetRolesAsync(user));
         }
 
-
-
-
         [Authorize(Policy = "ModeratePhotoRole")]
         [HttpGet("photos-to-moderate")]
         public ActionResult GetPhotosForModeration()
         {
-            return Ok("Only Admin and Modetators can see this");
+            return Ok("Admins or moderators can see this");
         }
     }
 }

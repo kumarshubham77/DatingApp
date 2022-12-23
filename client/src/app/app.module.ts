@@ -31,7 +31,8 @@ import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { HasRoleDirective } from './_directives/has-role.directive';
 import { UserManagementComponent } from './admin/user-management/user-management.component';
 import { PhotoManagementComponent } from './admin/photo-management/photo-management.component';
-import { RolesModelComponent } from './modals/roles-model/roles-model.component';
+import { RolesModalComponent } from './modals/roles-model/roles-model.component';
+
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import { RolesModelComponent } from './modals/roles-model/roles-model.component'
     HasRoleDirective,
     UserManagementComponent,
     PhotoManagementComponent,
-    RolesModelComponent
+    RolesModalComponent
   ],
   imports: [
     BrowserModule,

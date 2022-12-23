@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/_models/user';
 import { AdminService } from 'src/app/_services/admin.service';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
-import { RolesModelComponent } from 'src/app/modals/roles-model/roles-model.component';
-import { EventEmitter } from 'stream';
+import { RolesModalComponent} from 'src/app/modals/roles-model/roles-model.component';
+// import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-user-management',
@@ -12,7 +12,7 @@ import { EventEmitter } from 'stream';
 })
 export class UserManagementComponent implements OnInit {
   users: User[] = [];
-  bsModalRef: BsModalRef<RolesModelComponent> = new BsModalRef<RolesModelComponent>();
+  bsModalRef: BsModalRef<RolesModalComponent> = new BsModalRef<RolesModalComponent>();
   availableRoles = [
     'Admin',
     'Moderator',
@@ -28,15 +28,8 @@ export class UserManagementComponent implements OnInit {
   getUsersWithRoles() {
     this.adminService.getUsersWithRoles().subscribe({
       next: users => this.users = users
-
     })
-    console.log("this is the new message", this.users);
-
-    
   }
-
-
-
 
   openRolesModal(user: User) {
     const config = {
@@ -47,7 +40,7 @@ export class UserManagementComponent implements OnInit {
         selectedRoles: [...user.roles]
       }
     }
-    this.bsModalRef = this.modalService.show(RolesModelComponent, config);
+    this.bsModalRef = this.modalService.show(RolesModalComponent, config);
     this.bsModalRef.onHide?.subscribe({
       next: () => {
         const selectedRoles = this.bsModalRef.content?.selectedRoles;
@@ -60,10 +53,7 @@ export class UserManagementComponent implements OnInit {
     })
   }
 
-
   private arrayEqual(arr1: any[], arr2: any[]) {
     return JSON.stringify(arr1.sort()) === JSON.stringify(arr2.sort());
   }
-
-
 }
