@@ -20,10 +20,12 @@ export class NavComponent implements OnInit {
 
   login()
   {
-    this.accountService.login(this.model).subscribe(response =>
-      {
+    this.accountService.login(this.model).subscribe({
+      next : _ => {
         this.route.navigateByUrl('/members');
-      })
+        this.model = {};
+      }
+    })
   }
 
   logout()
