@@ -28,6 +28,8 @@ namespace API.Data
 
             foreach (var user in users)
             {
+
+                user.Photos.First().IsApproved = true;
                 // using var hmac = new HMACSHA512();
                 user.UserName = user.UserName.ToLower();
                 // user.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("Pa$$w0rd"));
