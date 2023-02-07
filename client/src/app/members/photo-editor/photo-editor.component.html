@@ -1,6 +1,6 @@
 <div class="row mb-3" *ngIf="member">
-    <div class="col-2 mb-1" *ngFor="let photo of member.photos">
-        <img src="{{photo.url}}" alt="photo of user" class="img-thumbnail mb-1">
+    <!-- <div class="col-2 mb-1" *ngFor="let photo of member.photos">
+        <img src="{{photo.url}}" alt="photo of user" class="img-thumbnail mb-1"> -->
     <div class="col-2 img-wrapper" *ngFor="let photo of member.photos">
         <img src="{{photo.url}}" 
             alt="photo of user" 
@@ -31,7 +31,7 @@
     <div class="col-3">
         <h3>Add Photos</h3>
         <div ng2FileDrop
-             [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+             [ngClass]="{'nv-file-over': hasBaseDropzoneOver}"
              (fileOver)="fileOverBase($event)"
              [uploader]="uploader"
              class="card bg-faded p-3 text-center mb-3 my-drop-zone">
