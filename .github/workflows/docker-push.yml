@@ -26,3 +26,5 @@ jobs:
           context:"{{defualtContext}}:API"
           push: true
           tags: shubh187/datingapp:latest
+
+          
